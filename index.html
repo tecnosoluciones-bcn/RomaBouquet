@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ROMA BOUQUET | Flores eternas hechas a mano</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -16,17 +16,12 @@
       --gold:#d6b56d;
       --white:#ffffff;
       --muted:#77716b;
+      --whatsapp:#25D366;
     }
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+    *{margin:0;padding:0;box-sizing:border-box}
 
-    html{
-      scroll-behavior:smooth;
-    }
+    html{scroll-behavior:smooth}
 
     body{
       font-family:'Inter', sans-serif;
@@ -35,15 +30,8 @@
       overflow-x:hidden;
     }
 
-    img{
-      max-width:100%;
-      display:block;
-    }
-
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
 
     .container{
       width:min(1180px, 92%);
@@ -55,8 +43,8 @@
       top:0;
       left:0;
       width:100%;
-      z-index:100;
-      background:rgba(248,245,240,.82);
+      z-index:1000;
+      background:rgba(248,245,240,.88);
       backdrop-filter:blur(18px);
       border-bottom:1px solid rgba(201,182,161,.25);
     }
@@ -66,6 +54,7 @@
       display:flex;
       justify-content:space-between;
       align-items:center;
+      gap:20px;
     }
 
     .logo{
@@ -73,10 +62,11 @@
       align-items:center;
       gap:12px;
       font-family:'Playfair Display', serif;
-      font-size:1.5rem;
+      font-size:1.45rem;
       letter-spacing:.08em;
       font-weight:700;
       color:var(--champagne);
+      white-space:nowrap;
     }
 
     .logo img{
@@ -87,29 +77,53 @@
 
     .menu{
       display:flex;
-      gap:34px;
-      font-size:.9rem;
+      gap:28px;
+      font-size:.82rem;
       text-transform:uppercase;
       letter-spacing:.12em;
       color:#3d3935;
+      font-weight:600;
     }
 
-    .menu a:hover{
-      color:var(--champagne);
+    .menu a{transition:.3s ease}
+    .menu a:hover{color:var(--champagne)}
+
+    .nav-actions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .mini-btn{
+      padding:11px 18px;
+      border-radius:999px;
+      font-size:.76rem;
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      font-weight:700;
+      background:var(--black);
+      color:var(--white);
+      transition:.3s ease;
+    }
+
+    .mini-btn:hover{
+      background:var(--champagne);
+      transform:translateY(-2px);
     }
 
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
+      gap:9px;
       padding:15px 28px;
       border-radius:999px;
       background:var(--black);
       color:var(--white);
-      font-size:.85rem;
+      font-size:.84rem;
       letter-spacing:.12em;
       text-transform:uppercase;
-      font-weight:600;
+      font-weight:700;
       transition:.35s ease;
       border:1px solid var(--black);
       box-shadow:0 18px 45px rgba(0,0,0,.16);
@@ -122,9 +136,22 @@
     }
 
     .btn-light{
-      background:rgba(255,255,255,.78);
+      background:rgba(255,255,255,.82);
       color:var(--black);
       border:1px solid rgba(201,182,161,.5);
+    }
+
+    .btn-light:hover{color:var(--white)}
+
+    .btn-whatsapp{
+      background:var(--whatsapp);
+      border-color:var(--whatsapp);
+      color:white;
+    }
+
+    .btn-whatsapp:hover{
+      background:#1ebc59;
+      border-color:#1ebc59;
     }
 
     .hero{
@@ -140,10 +167,23 @@
       content:"ROMA";
       position:absolute;
       right:-5%;
-      top:12%;
+      top:11%;
       font-family:'Playfair Display', serif;
       font-size:18vw;
       color:rgba(201,182,161,.10);
+      z-index:-1;
+      pointer-events:none;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      width:520px;
+      height:520px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(234,210,210,.65), transparent 68%);
+      left:-180px;
+      bottom:20px;
       z-index:-1;
     }
 
@@ -154,12 +194,12 @@
       gap:70px;
     }
 
-    .hero-text span{
+    .eyebrow{
       color:var(--champagne);
       text-transform:uppercase;
       letter-spacing:.22em;
-      font-size:.82rem;
-      font-weight:600;
+      font-size:.78rem;
+      font-weight:800;
     }
 
     h1{
@@ -173,9 +213,9 @@
 
     .hero-text p{
       margin:28px 0 36px;
-      max-width:520px;
-      font-size:1.1rem;
-      line-height:1.8;
+      max-width:570px;
+      font-size:1.06rem;
+      line-height:1.85;
       color:var(--muted);
     }
 
@@ -185,9 +225,7 @@
       flex-wrap:wrap;
     }
 
-    .hero-img{
-      position:relative;
-    }
+    .hero-img{position:relative}
 
     .hero-card{
       border-radius:42px;
@@ -209,7 +247,7 @@
       position:absolute;
       bottom:44px;
       left:-38px;
-      background:rgba(255,255,255,.82);
+      background:rgba(255,255,255,.86);
       backdrop-filter:blur(14px);
       border:1px solid rgba(201,182,161,.35);
       padding:20px 26px;
@@ -219,9 +257,7 @@
       font-size:1.35rem;
     }
 
-    section{
-      padding:110px 0;
-    }
+    section{padding:110px 0}
 
     .section-head{
       text-align:center;
@@ -233,7 +269,7 @@
       text-transform:uppercase;
       letter-spacing:.22em;
       font-size:.78rem;
-      font-weight:700;
+      font-weight:800;
     }
 
     .section-head h2{
@@ -241,23 +277,22 @@
       font-size:clamp(2.4rem, 5vw, 4.4rem);
       margin-top:12px;
       font-weight:600;
+      letter-spacing:-.03em;
     }
 
     .section-head p{
-      max-width:640px;
+      max-width:680px;
       margin:18px auto 0;
       color:var(--muted);
       line-height:1.8;
     }
 
-    .collection{
-      background:#fffaf6;
-    }
+    .collection{background:#fffaf6}
 
     .cards{
       display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:24px;
+      grid-template-columns:repeat(3,1fr);
+      gap:26px;
     }
 
     .product{
@@ -267,6 +302,8 @@
       box-shadow:0 24px 60px rgba(0,0,0,.08);
       transition:.35s ease;
       border:1px solid rgba(201,182,161,.22);
+      position:relative;
+      overflow:hidden;
     }
 
     .product:hover{
@@ -275,7 +312,7 @@
     }
 
     .product img{
-      height:290px;
+      height:310px;
       width:100%;
       object-fit:cover;
       border-radius:22px;
@@ -290,8 +327,24 @@
     .product p{
       color:var(--muted);
       font-size:.95rem;
-      line-height:1.6;
+      line-height:1.65;
       margin:0 8px 18px;
+    }
+
+    .badge{
+      position:absolute;
+      top:28px;
+      left:28px;
+      background:rgba(255,255,255,.86);
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(201,182,161,.4);
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:.72rem;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      font-weight:800;
+      color:#5f5146;
     }
 
     .personal{
@@ -317,6 +370,7 @@
       font-family:'Playfair Display', serif;
       font-size:clamp(2.5rem,5vw,4.5rem);
       line-height:1;
+      letter-spacing:-.03em;
     }
 
     .personal-text p{
@@ -326,19 +380,39 @@
       font-size:1.05rem;
     }
 
+    .materials{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:28px 0 34px;
+    }
+
+    .materials span{
+      padding:10px 15px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid rgba(201,182,161,.35);
+      color:#5d5149;
+      font-size:.86rem;
+      font-weight:700;
+      box-shadow:0 10px 28px rgba(0,0,0,.05);
+    }
+
     .features{
       background:var(--black);
       color:var(--white);
+      position:relative;
+      overflow:hidden;
     }
 
-    .features .section-head p{
-      color:#cfc7bd;
-    }
+    .features .section-head p{color:#cfc7bd}
 
     .feature-grid{
       display:grid;
       grid-template-columns:repeat(5,1fr);
       gap:18px;
+      position:relative;
+      z-index:2;
     }
 
     .feature{
@@ -347,11 +421,18 @@
       background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.03));
       border:1px solid rgba(255,255,255,.11);
       text-align:center;
+      transition:.35s ease;
+    }
+
+    .feature:hover{
+      transform:translateY(-6px);
+      border-color:rgba(214,181,109,.5);
     }
 
     .feature div{
       font-size:2rem;
       margin-bottom:14px;
+      color:var(--gold);
     }
 
     .feature h3{
@@ -362,31 +443,29 @@
 
     .gallery{
       display:grid;
-      grid-template-columns:repeat(6,1fr);
-      gap:14px;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
     }
 
     .gallery img{
-      height:260px;
+      height:280px;
       width:100%;
       object-fit:cover;
       border-radius:24px;
       box-shadow:0 18px 45px rgba(0,0,0,.1);
       transition:.35s;
+      background:#fff;
     }
 
-    .gallery img:hover{
-      transform:scale(1.03);
-    }
+    .gallery img:hover{transform:scale(1.03)}
 
-    .gallery img:nth-child(2),
-    .gallery img:nth-child(5){
+    .gallery img:nth-child(1),
+    .gallery img:nth-child(6),
+    .gallery img:nth-child(11){
       grid-column:span 2;
     }
 
-    .testimonials{
-      background:#fffaf6;
-    }
+    .testimonials{background:#fffaf6}
 
     .reviews{
       display:grid;
@@ -400,6 +479,13 @@
       border-radius:30px;
       box-shadow:0 22px 60px rgba(0,0,0,.08);
       border:1px solid rgba(201,182,161,.2);
+    }
+
+    .stars{
+      color:var(--gold);
+      letter-spacing:3px;
+      margin-bottom:18px;
+      font-size:1rem;
     }
 
     .review p{
@@ -426,13 +512,21 @@
       font-family:'Playfair Display', serif;
       font-size:clamp(2.8rem,6vw,5.2rem);
       margin-bottom:24px;
+      letter-spacing:-.03em;
     }
 
     .cta p{
-      max-width:620px;
+      max-width:650px;
       margin:0 auto 34px;
       color:#eee4da;
       line-height:1.8;
+    }
+
+    .cta-actions{
+      display:flex;
+      justify-content:center;
+      gap:16px;
+      flex-wrap:wrap;
     }
 
     footer{
@@ -456,24 +550,54 @@
       text-transform:uppercase;
       font-size:.85rem;
       letter-spacing:.12em;
+      font-weight:700;
+      flex-wrap:wrap;
     }
 
-    .whatsapp-float{
+    .socials a{transition:.3s ease}
+    .socials a:hover{color:var(--white)}
+
+    .float-buttons{
       position:fixed;
       right:22px;
       bottom:22px;
+      z-index:1500;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .float-btn{
       width:58px;
       height:58px;
       border-radius:50%;
-      background:#25D366;
-      color:white;
       display:flex;
       align-items:center;
       justify-content:center;
-      font-size:1.8rem;
-      z-index:150;
-      box-shadow:0 18px 40px rgba(37,211,102,.35);
+      box-shadow:0 18px 40px rgba(0,0,0,.22);
+      transition:.3s ease;
+      overflow:hidden;
+    }
+
+    .float-btn svg{
+      width:30px;
+      height:30px;
+      fill:#fff;
+    }
+
+    .float-btn:hover{transform:translateY(-4px) scale(1.04)}
+
+    .float-whatsapp{
+      background:#25D366;
       animation:pulse 2s infinite;
+    }
+
+    .float-instagram{
+      background:radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    }
+
+    .float-tiktok{
+      background:#000;
     }
 
     @keyframes pulse{
@@ -493,10 +617,14 @@
       transform:translateY(0);
     }
 
+    @media(max-width:1100px){
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .feature-grid{grid-template-columns:repeat(3,1fr)}
+      .gallery{grid-template-columns:repeat(3,1fr)}
+    }
+
     @media(max-width:980px){
-      .menu{
-        display:none;
-      }
+      .menu{display:none}
 
       .hero-grid,
       .personal{
@@ -508,39 +636,24 @@
         height:480px;
       }
 
-      .cards{
-        grid-template-columns:repeat(2,1fr);
-      }
+      .gallery{grid-template-columns:repeat(2,1fr)}
 
-      .feature-grid{
-        grid-template-columns:repeat(2,1fr);
-      }
-
-      .gallery{
-        grid-template-columns:repeat(2,1fr);
-      }
-
-      .gallery img:nth-child(2),
-      .gallery img:nth-child(5){
+      .gallery img:nth-child(1),
+      .gallery img:nth-child(6),
+      .gallery img:nth-child(11){
         grid-column:span 1;
       }
 
-      .reviews{
-        grid-template-columns:1fr;
-      }
-
-      .floating-label{
-        left:20px;
-      }
+      .reviews{grid-template-columns:1fr}
+      .floating-label{left:20px}
     }
 
-    @media(max-width:560px){
-      .nav{
-        height:70px;
-      }
+    @media(max-width:620px){
+      .nav{height:72px}
 
       .logo{
-        font-size:1.05rem;
+        font-size:1rem;
+        letter-spacing:.05em;
       }
 
       .logo img{
@@ -548,26 +661,28 @@
         height:48px;
       }
 
-      section{
-        padding:80px 0;
-      }
+      .nav-actions{display:none}
 
-      .hero{
-        padding-top:105px;
-      }
+      section{padding:78px 0}
 
-      .hero-actions{
+      .hero{padding-top:105px}
+
+      .hero-actions,
+      .cta-actions{
         flex-direction:column;
       }
 
-      .btn{
-        width:100%;
-      }
+      .btn{width:100%}
 
       .cards,
       .feature-grid,
       .gallery{
         grid-template-columns:1fr;
+      }
+
+      .hero-card{
+        border-radius:30px;
+        padding:12px;
       }
 
       .hero-card img,
@@ -577,14 +692,34 @@
         height:360px;
       }
 
+      .floating-label{
+        position:static;
+        margin-top:14px;
+        text-align:center;
+      }
+
       .footer-content{
         flex-direction:column;
         text-align:center;
       }
 
       .socials{
-        flex-wrap:wrap;
         justify-content:center;
+      }
+
+      .float-buttons{
+        right:16px;
+        bottom:16px;
+      }
+
+      .float-btn{
+        width:54px;
+        height:54px;
+      }
+
+      .float-btn svg{
+        width:28px;
+        height:28px;
       }
     }
   </style>
@@ -605,29 +740,55 @@
         <a href="#galeria">Galería</a>
         <a href="#pedido">Pedido</a>
       </nav>
+
+      <div class="nav-actions">
+        <a class="mini-btn" href="https://www.instagram.com/romabouquet_es/" target="_blank">Instagram</a>
+        <a class="mini-btn" href="https://www.tiktok.com/@romabouquet?_r=1&_t=ZN-95n3i7znl5y" target="_blank">TikTok</a>
+      </div>
     </div>
   </header>
 
-  <a class="whatsapp-float" href="https://wa.me/34600000000?text=Hola%20ROMA%20BOUQUET,%20quiero%20hacer%20un%20pedido%20personalizado" target="_blank">✆</a>
+  <div class="float-buttons">
+    <a class="float-btn float-instagram" href="https://www.instagram.com/romabouquet_es/" target="_blank" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-2.35a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3Z"/>
+      </svg>
+    </a>
+
+    <a class="float-btn float-tiktok" href="https://www.tiktok.com/@romabouquet?_r=1&_t=ZN-95n3i7znl5y" target="_blank" aria-label="TikTok">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 1 1-2-2.75V9.4a6.34 6.34 0 1 0 5.45 6.27V8.56a8.16 8.16 0 0 0 4.77 1.53V6.69Z"/>
+      </svg>
+    </a>
+
+    <a class="float-btn float-whatsapp" href="https://wa.me/34642170894?text=Hola%20ROMA%20BOUQUET,%20quiero%20hacer%20un%20pedido%20personalizado" target="_blank" aria-label="WhatsApp">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M16.04 3C8.87 3 3.04 8.82 3.04 15.98c0 2.29.6 4.52 1.75 6.49L3 29l6.7-1.75a12.93 12.93 0 0 0 6.34 1.61h.01c7.16 0 12.98-5.82 12.98-12.98C29.03 8.82 23.2 3 16.04 3Zm0 23.66h-.01c-1.98 0-3.92-.53-5.62-1.53l-.4-.24-3.98 1.04 1.06-3.88-.26-.4a10.7 10.7 0 0 1-1.64-5.67c0-5.96 4.86-10.81 10.84-10.81 2.89 0 5.61 1.13 7.65 3.17a10.74 10.74 0 0 1 3.18 7.64c0 5.97-4.85 10.82-10.82 10.82Zm5.94-8.1c-.33-.16-1.93-.95-2.23-1.06-.3-.11-.52-.16-.74.16-.22.33-.85 1.06-1.04 1.28-.19.22-.38.25-.71.08-.33-.16-1.38-.51-2.63-1.62-.97-.87-1.63-1.94-1.82-2.27-.19-.33-.02-.51.14-.67.15-.15.33-.38.49-.57.16-.19.22-.33.33-.55.11-.22.05-.41-.03-.57-.08-.16-.74-1.78-1.01-2.44-.27-.64-.54-.55-.74-.56h-.63c-.22 0-.57.08-.87.41-.3.33-1.14 1.11-1.14 2.71s1.17 3.15 1.33 3.37c.16.22 2.3 3.51 5.58 4.92.78.34 1.39.54 1.86.69.78.25 1.49.21 2.05.13.63-.09 1.93-.79 2.2-1.55.27-.76.27-1.41.19-1.55-.08-.14-.3-.22-.63-.38Z"/>
+      </svg>
+    </a>
+  </div>
 
   <main>
 
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-text reveal">
-          <span>Bouquets eternos hechos a mano</span>
-          <h1>Flores eternas que hablan por ti</h1>
-          <p>Arreglos únicos hechos a mano con satén, tela, listones, foam y flores artesanales para sorprender para siempre.</p>
+          <span class="eyebrow">Bouquets eternos hechos a mano</span>
+          <h1>El amor también puede durar para siempre</h1>
+          <p>
+            Arreglos únicos hechos a mano con satén, tela, listones, foam, flores de cinta raso o satinada,
+            flores de limpiapipas y flores artesanales para sorprender para siempre.
+          </p>
 
           <div class="hero-actions">
-            <a href="https://wa.me/34600000000?text=Hola%20ROMA%20BOUQUET,%20quiero%20comprar%20un%20bouquet" target="_blank" class="btn">Comprar ahora</a>
+            <a href="https://wa.me/34642170894?text=Hola%20ROMA%20BOUQUET,%20quiero%20comprar%20un%20bouquet" target="_blank" class="btn btn-whatsapp">Comprar ahora</a>
             <a href="#coleccion" class="btn btn-light">Ver colección</a>
           </div>
         </div>
 
         <div class="hero-img reveal">
           <div class="hero-card">
-            <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=1200&q=80" alt="Bouquet premium">
+            <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=1200&q=80" alt="Bouquet premium ROMA BOUQUET">
           </div>
           <div class="floating-label">Diseños personalizados</div>
         </div>
@@ -644,24 +805,42 @@
 
         <div class="cards">
           <article class="product reveal">
+            <span class="badge">Artesanal</span>
             <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=900&q=80" alt="Tulipanes tejidos">
             <h3>Tulipanes tejidos</h3>
             <p>Diseños dulces, modernos y delicados para regalos románticos o fechas especiales.</p>
           </article>
 
           <article class="product reveal">
+            <span class="badge">Premium</span>
             <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=900&q=80" alt="Rosas de satén">
             <h3>Rosas de satén</h3>
             <p>Acabado elegante y femenino con brillo suave, textura premium y presencia sofisticada.</p>
           </article>
 
           <article class="product reveal">
+            <span class="badge">A medida</span>
             <img src="https://images.unsplash.com/photo-1518709779341-56cf4535e94b?auto=format&fit=crop&w=900&q=80" alt="Ramos personalizados">
             <h3>Ramos personalizados</h3>
             <p>Colores, nombres, frases, estilos y detalles diseñados especialmente para cada ocasión.</p>
           </article>
 
           <article class="product reveal">
+            <span class="badge">Nuevo</span>
+            <img src="https://images.unsplash.com/photo-1520763185298-1b434c919102?auto=format&fit=crop&w=900&q=80" alt="Flores de cinta raso">
+            <h3>Flores de cinta raso</h3>
+            <p>Flores elaboradas con cinta satinada, brillo elegante y acabado delicado de estilo boutique.</p>
+          </article>
+
+          <article class="product reveal">
+            <span class="badge">Creativo</span>
+            <img src="https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80" alt="Flores de limpiapipas">
+            <h3>Flores de limpiapipas</h3>
+            <p>Creaciones originales, coloridas y artesanales con una estética moderna, tierna y diferente.</p>
+          </article>
+
+          <article class="product reveal">
+            <span class="badge">Especial</span>
             <img src="https://images.unsplash.com/photo-1533616688419-b7a585564566?auto=format&fit=crop&w=900&q=80" alt="Ediciones especiales">
             <h3>Ediciones especiales</h3>
             <p>Piezas limitadas para aniversarios, cumpleaños, San Valentín, bodas y momentos únicos.</p>
@@ -673,14 +852,31 @@
     <section id="personalizacion">
       <div class="container personal">
         <div class="personal-img reveal">
-          <img src="https://images.unsplash.com/photo-1531120364508-a6b656c3e78c?auto=format&fit=crop&w=1200&q=80" alt="Bouquet personalizado">
+          <img src="https://images.unsplash.com/photo-1531120364508-a6b656c3e78c?auto=format&fit=crop&w=1200&q=80" alt="Bouquet personalizado hecho a mano">
         </div>
 
         <div class="personal-text reveal">
+          <span class="eyebrow">Personalización exclusiva</span>
           <h2>Creamos bouquets únicos para cada historia</h2>
-          <p>Creamos bouquets personalizados con nombres, frases, colores y estilos especiales. Cada diseño se trabaja de forma artesanal para reflejar emoción, elegancia y significado.</p>
-          <p>Perfectos para cumpleaños, aniversarios, pedidas, bodas, detalles románticos, regalos corporativos o sorpresas inolvidables.</p>
-          <a href="https://wa.me/34600000000?text=Hola%20ROMA%20BOUQUET,%20quiero%20un%20bouquet%20personalizado" target="_blank" class="btn">Personalizar pedido</a>
+          <p>
+            Creamos bouquets personalizados con nombres, frases, colores y estilos especiales utilizando rosas de satén,
+            flores de cinta raso, foam, limpiapipas, listones y materiales premium.
+          </p>
+          <p>
+            Perfectos para cumpleaños, aniversarios, pedidas, bodas, detalles románticos, regalos corporativos
+            o sorpresas inolvidables.
+          </p>
+
+          <div class="materials">
+            <span>Satén</span>
+            <span>Cinta raso</span>
+            <span>Foam</span>
+            <span>Limpiapipas</span>
+            <span>Listones</span>
+            <span>Flores artesanales</span>
+          </div>
+
+          <a href="https://wa.me/34642170894?text=Hola%20ROMA%20BOUQUET,%20quiero%20un%20bouquet%20personalizado" target="_blank" class="btn btn-whatsapp">Personalizar pedido</a>
         </div>
       </div>
     </section>
@@ -708,15 +904,21 @@
         <div class="section-head reveal">
           <span>Galería</span>
           <h2>Inspiración estilo Instagram</h2>
+          <p>Una estética limpia, femenina y sofisticada pensada para regalos con impacto visual.</p>
         </div>
 
         <div class="gallery">
-          <img class="reveal" src="https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=800&q=80" alt="">
-          <img class="reveal" src="https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?auto=format&fit=crop&w=900&q=80" alt="">
-          <img class="reveal" src="https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=800&q=80" alt="">
-          <img class="reveal" src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=800&q=80" alt="">
-          <img class="reveal" src="https://images.unsplash.com/photo-1470509037663-253afd7f0f51?auto=format&fit=crop&w=900&q=80" alt="">
-          <img class="reveal" src="https://images.unsplash.com/photo-1487530903081-59e0e3331512?auto=format&fit=crop&w=800&q=80" alt="">
+          <img class="reveal" src="1.png" alt="Bouquet ROMA BOUQUET 1">
+          <img class="reveal" src="2.png" alt="Bouquet ROMA BOUQUET 2">
+          <img class="reveal" src="3.png" alt="Bouquet ROMA BOUQUET 3">
+          <img class="reveal" src="4.png" alt="Bouquet ROMA BOUQUET 4">
+          <img class="reveal" src="5.png" alt="Bouquet ROMA BOUQUET 5">
+          <img class="reveal" src="6.png" alt="Bouquet ROMA BOUQUET 6">
+          <img class="reveal" src="7.png" alt="Bouquet ROMA BOUQUET 7">
+          <img class="reveal" src="8.png" alt="Bouquet ROMA BOUQUET 8">
+          <img class="reveal" src="9.png" alt="Bouquet ROMA BOUQUET 9">
+          <img class="reveal" src="10.png" alt="Bouquet ROMA BOUQUET 10">
+          <img class="reveal" src="11.png" alt="Bouquet ROMA BOUQUET 11">
         </div>
       </div>
     </section>
@@ -730,16 +932,19 @@
 
         <div class="reviews">
           <div class="review reveal">
+            <div class="stars">★★★★★</div>
             <p>“El bouquet fue precioso, muy delicado y elegante. Se nota muchísimo el trabajo artesanal.”</p>
             <h4>María G.</h4>
           </div>
 
           <div class="review reveal">
+            <div class="stars">★★★★★</div>
             <p>“Lo pedí personalizado y superó mis expectativas. Fue un regalo muy especial.”</p>
             <h4>Camila R.</h4>
           </div>
 
           <div class="review reveal">
+            <div class="stars">★★★★★</div>
             <p>“La presentación, los colores y los acabados son de marca premium. Repetiré seguro.”</p>
             <h4>Valentina S.</h4>
           </div>
@@ -750,8 +955,16 @@
     <section id="pedido" class="cta">
       <div class="container reveal">
         <h2>Haz eterno tu próximo regalo</h2>
-        <p>Cuéntanos tu idea y crearemos un bouquet artesanal, elegante y personalizado para sorprender de una forma inolvidable.</p>
-        <a href="https://wa.me/34600000000?text=Hola%20ROMA%20BOUQUET,%20quiero%20hacer%20un%20pedido" target="_blank" class="btn">WhatsApp pedido</a>
+        <p>
+          Cuéntanos tu idea y crearemos un bouquet artesanal, elegante y personalizado para sorprender
+          de una forma inolvidable.
+        </p>
+
+        <div class="cta-actions">
+          <a href="https://wa.me/34642170894?text=Hola%20ROMA%20BOUQUET,%20quiero%20hacer%20un%20pedido" target="_blank" class="btn btn-whatsapp">WhatsApp pedido</a>
+          <a href="https://www.instagram.com/romabouquet_es/" target="_blank" class="btn btn-light">Ver Instagram</a>
+          <a href="https://www.tiktok.com/@romabouquet?_r=1&_t=ZN-95n3i7znl5y" target="_blank" class="btn btn-light">Ver TikTok</a>
+        </div>
       </div>
     </section>
 
@@ -765,9 +978,9 @@
       </div>
 
       <div class="socials">
-        <a href="#" target="_blank">Instagram</a>
-        <a href="#" target="_blank">TikTok</a>
-        <a href="https://wa.me/34600000000" target="_blank">WhatsApp</a>
+        <a href="https://www.instagram.com/romabouquet_es/" target="_blank">Instagram</a>
+        <a href="https://www.tiktok.com/@romabouquet?_r=1&_t=ZN-95n3i7znl5y" target="_blank">TikTok</a>
+        <a href="https://wa.me/34642170894" target="_blank">WhatsApp</a>
       </div>
     </div>
   </footer>
