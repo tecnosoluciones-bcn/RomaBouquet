@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROMA BOUQUET | Flores eternas hechas a mano</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --champagne:#c9b6a1;
+      --pearl:#f8f5f0;
+      --rose:#ead2d2;
+      --black:#141414;
+      --gold:#d6b56d;
+      --white:#ffffff;
+      --muted:#77716b;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Inter', sans-serif;
+      background:var(--pearl);
+      color:var(--black);
+      overflow-x:hidden;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:min(1180px, 92%);
+      margin:auto;
+    }
+
+    header{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      z-index:100;
+      background:rgba(248,245,240,.82);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(201,182,161,.25);
+    }
+
+    .nav{
+      height:78px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-family:'Playfair Display', serif;
+      font-size:1.5rem;
+      letter-spacing:.08em;
+      font-weight:700;
+      color:var(--champagne);
+    }
+
+    .logo img{
+      width:58px;
+      height:58px;
+      object-fit:contain;
+    }
+
+    .menu{
+      display:flex;
+      gap:34px;
+      font-size:.9rem;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      color:#3d3935;
+    }
+
+    .menu a:hover{
+      color:var(--champagne);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:15px 28px;
+      border-radius:999px;
+      background:var(--black);
+      color:var(--white);
+      font-size:.85rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-weight:600;
+      transition:.35s ease;
+      border:1px solid var(--black);
+      box-shadow:0 18px 45px rgba(0,0,0,.16);
+    }
+
+    .btn:hover{
+      background:var(--champagne);
+      border-color:var(--champagne);
+      transform:translateY(-3px);
+    }
+
+    .btn-light{
+      background:rgba(255,255,255,.78);
+      color:var(--black);
+      border:1px solid rgba(201,182,161,.5);
+    }
+
+    .hero{
+      min-height:100vh;
+      padding-top:120px;
+      display:grid;
+      align-items:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:"ROMA";
+      position:absolute;
+      right:-5%;
+      top:12%;
+      font-family:'Playfair Display', serif;
+      font-size:18vw;
+      color:rgba(201,182,161,.10);
+      z-index:-1;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      align-items:center;
+      gap:70px;
+    }
+
+    .hero-text span{
+      color:var(--champagne);
+      text-transform:uppercase;
+      letter-spacing:.22em;
+      font-size:.82rem;
+      font-weight:600;
+    }
+
+    h1{
+      margin-top:18px;
+      font-family:'Playfair Display', serif;
+      font-size:clamp(3rem, 7vw, 6.9rem);
+      line-height:.94;
+      font-weight:600;
+      letter-spacing:-.04em;
+    }
+
+    .hero-text p{
+      margin:28px 0 36px;
+      max-width:520px;
+      font-size:1.1rem;
+      line-height:1.8;
+      color:var(--muted);
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .hero-img{
+      position:relative;
+    }
+
+    .hero-card{
+      border-radius:42px;
+      overflow:hidden;
+      background:linear-gradient(145deg,#fff,var(--rose));
+      padding:18px;
+      box-shadow:0 35px 90px rgba(93,72,55,.18);
+      transform:rotate(1deg);
+    }
+
+    .hero-card img{
+      height:650px;
+      width:100%;
+      object-fit:cover;
+      border-radius:32px;
+    }
+
+    .floating-label{
+      position:absolute;
+      bottom:44px;
+      left:-38px;
+      background:rgba(255,255,255,.82);
+      backdrop-filter:blur(14px);
+      border:1px solid rgba(201,182,161,.35);
+      padding:20px 26px;
+      border-radius:24px;
+      box-shadow:0 20px 50px rgba(0,0,0,.12);
+      font-family:'Playfair Display', serif;
+      font-size:1.35rem;
+    }
+
+    section{
+      padding:110px 0;
+    }
+
+    .section-head{
+      text-align:center;
+      margin-bottom:58px;
+    }
+
+    .section-head span{
+      color:var(--champagne);
+      text-transform:uppercase;
+      letter-spacing:.22em;
+      font-size:.78rem;
+      font-weight:700;
+    }
+
+    .section-head h2{
+      font-family:'Playfair Display', serif;
+      font-size:clamp(2.4rem, 5vw, 4.4rem);
+      margin-top:12px;
+      font-weight:600;
+    }
+
+    .section-head p{
+      max-width:640px;
+      margin:18px auto 0;
+      color:var(--muted);
+      line-height:1.8;
+    }
+
+    .collection{
+      background:#fffaf6;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:24px;
+    }
+
+    .product{
+      background:var(--white);
+      border-radius:30px;
+      padding:16px;
+      box-shadow:0 24px 60px rgba(0,0,0,.08);
+      transition:.35s ease;
+      border:1px solid rgba(201,182,161,.22);
+    }
+
+    .product:hover{
+      transform:translateY(-8px);
+      box-shadow:0 32px 80px rgba(0,0,0,.13);
+    }
+
+    .product img{
+      height:290px;
+      width:100%;
+      object-fit:cover;
+      border-radius:22px;
+    }
+
+    .product h3{
+      font-family:'Playfair Display', serif;
+      font-size:1.45rem;
+      margin:20px 8px 8px;
+    }
+
+    .product p{
+      color:var(--muted);
+      font-size:.95rem;
+      line-height:1.6;
+      margin:0 8px 18px;
+    }
+
+    .personal{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:center;
+    }
+
+    .personal-img{
+      border-radius:40px;
+      overflow:hidden;
+      box-shadow:0 30px 90px rgba(0,0,0,.14);
+    }
+
+    .personal-img img{
+      height:560px;
+      width:100%;
+      object-fit:cover;
+    }
+
+    .personal-text h2{
+      font-family:'Playfair Display', serif;
+      font-size:clamp(2.5rem,5vw,4.5rem);
+      line-height:1;
+    }
+
+    .personal-text p{
+      margin:24px 0;
+      color:var(--muted);
+      line-height:1.9;
+      font-size:1.05rem;
+    }
+
+    .features{
+      background:var(--black);
+      color:var(--white);
+    }
+
+    .features .section-head p{
+      color:#cfc7bd;
+    }
+
+    .feature-grid{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:18px;
+    }
+
+    .feature{
+      padding:34px 22px;
+      border-radius:28px;
+      background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.11);
+      text-align:center;
+    }
+
+    .feature div{
+      font-size:2rem;
+      margin-bottom:14px;
+    }
+
+    .feature h3{
+      font-family:'Playfair Display', serif;
+      font-size:1.2rem;
+      color:var(--rose);
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(6,1fr);
+      gap:14px;
+    }
+
+    .gallery img{
+      height:260px;
+      width:100%;
+      object-fit:cover;
+      border-radius:24px;
+      box-shadow:0 18px 45px rgba(0,0,0,.1);
+      transition:.35s;
+    }
+
+    .gallery img:hover{
+      transform:scale(1.03);
+    }
+
+    .gallery img:nth-child(2),
+    .gallery img:nth-child(5){
+      grid-column:span 2;
+    }
+
+    .testimonials{
+      background:#fffaf6;
+    }
+
+    .reviews{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:26px;
+    }
+
+    .review{
+      background:var(--white);
+      padding:34px;
+      border-radius:30px;
+      box-shadow:0 22px 60px rgba(0,0,0,.08);
+      border:1px solid rgba(201,182,161,.2);
+    }
+
+    .review p{
+      color:var(--muted);
+      line-height:1.8;
+      font-style:italic;
+    }
+
+    .review h4{
+      margin-top:24px;
+      font-family:'Playfair Display', serif;
+      font-size:1.25rem;
+    }
+
+    .cta{
+      text-align:center;
+      background:
+        linear-gradient(rgba(20,20,20,.62),rgba(20,20,20,.62)),
+        url('https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?auto=format&fit=crop&w=1600&q=80') center/cover;
+      color:var(--white);
+    }
+
+    .cta h2{
+      font-family:'Playfair Display', serif;
+      font-size:clamp(2.8rem,6vw,5.2rem);
+      margin-bottom:24px;
+    }
+
+    .cta p{
+      max-width:620px;
+      margin:0 auto 34px;
+      color:#eee4da;
+      line-height:1.8;
+    }
+
+    footer{
+      background:var(--black);
+      color:var(--white);
+      padding:42px 0;
+    }
+
+    .footer-content{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .socials{
+      display:flex;
+      gap:20px;
+      color:#d8c7b5;
+      text-transform:uppercase;
+      font-size:.85rem;
+      letter-spacing:.12em;
+    }
+
+    .whatsapp-float{
+      position:fixed;
+      right:22px;
+      bottom:22px;
+      width:58px;
+      height:58px;
+      border-radius:50%;
+      background:#25D366;
+      color:white;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.8rem;
+      z-index:150;
+      box-shadow:0 18px 40px rgba(37,211,102,.35);
+      animation:pulse 2s infinite;
+    }
+
+    @keyframes pulse{
+      0%{transform:scale(1)}
+      50%{transform:scale(1.08)}
+      100%{transform:scale(1)}
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(40px);
+      transition:1s ease;
+    }
+
+    .reveal.active{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    @media(max-width:980px){
+      .menu{
+        display:none;
+      }
+
+      .hero-grid,
+      .personal{
+        grid-template-columns:1fr;
+      }
+
+      .hero-card img,
+      .personal-img img{
+        height:480px;
+      }
+
+      .cards{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .feature-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .gallery{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .gallery img:nth-child(2),
+      .gallery img:nth-child(5){
+        grid-column:span 1;
+      }
+
+      .reviews{
+        grid-template-columns:1fr;
+      }
+
+      .floating-label{
+        left:20px;
+      }
+    }
+
+    @media(max-width:560px){
+      .nav{
+        height:70px;
+      }
+
+      .logo{
+        font-size:1.05rem;
+      }
+
+      .logo img{
+        width:48px;
+        height:48px;
+      }
+
+      section{
+        padding:80px 0;
+      }
+
+      .hero{
+        padding-top:105px;
+      }
+
+      .hero-actions{
+        flex-direction:column;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      .cards,
+      .feature-grid,
+      .gallery{
+        grid-template-columns:1fr;
+      }
+
+      .hero-card img,
+      .personal-img img,
+      .product img,
+      .gallery img{
+        height:360px;
+      }
+
+      .footer-content{
+        flex-direction:column;
+        text-align:center;
+      }
+
+      .socials{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo">
+        <img src="romab.png" alt="ROMA BOUQUET">
+        ROMA BOUQUET
+      </a>
+
+      <nav class="menu">
+        <a href="#coleccion">Colección</a>
+        <a href="#personalizacion">Personalización</a>
+        <a href="#galeria">Galería</a>
+        <a href="#pedido">Pedido</a>
+      </nav>
+    </div>
+  </header>
+
+  <a class="whatsapp-float" href="https://wa.me/34600000000?text=Hola%20ROMA%20BOUQUET,%20quiero%20hacer%20un%20pedido%20personalizado" target="_blank">✆</a>
+
+  <main>
+
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text reveal">
+          <span>Bouquets eternos hechos a mano</span>
+          <h1>Flores eternas que hablan por ti</h1>
+          <p>Arreglos únicos hechos a mano con satén, tela, listones, foam y flores artesanales para sorprender para siempre.</p>
+
+          <div class="hero-actions">
+            <a href="https://wa.me/34600000000?text=Hola%20ROMA%20BOUQUET,%20quiero%20comprar%20un%20bouquet" target="_blank" class="btn">Comprar ahora</a>
+            <a href="#coleccion" class="btn btn-light">Ver colección</a>
+          </div>
+        </div>
+
+        <div class="hero-img reveal">
+          <div class="hero-card">
+            <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=1200&q=80" alt="Bouquet premium">
+          </div>
+          <div class="floating-label">Diseños personalizados</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="coleccion" class="collection">
+      <div class="container">
+        <div class="section-head reveal">
+          <span>Colección destacada</span>
+          <h2>Bouquets con alma boutique</h2>
+          <p>Cada pieza se diseña con detalle, equilibrio visual y acabados delicados para convertir un regalo en un recuerdo eterno.</p>
+        </div>
+
+        <div class="cards">
+          <article class="product reveal">
+            <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=900&q=80" alt="Tulipanes tejidos">
+            <h3>Tulipanes tejidos</h3>
+            <p>Diseños dulces, modernos y delicados para regalos románticos o fechas especiales.</p>
+          </article>
+
+          <article class="product reveal">
+            <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=900&q=80" alt="Rosas de satén">
+            <h3>Rosas de satén</h3>
+            <p>Acabado elegante y femenino con brillo suave, textura premium y presencia sofisticada.</p>
+          </article>
+
+          <article class="product reveal">
+            <img src="https://images.unsplash.com/photo-1518709779341-56cf4535e94b?auto=format&fit=crop&w=900&q=80" alt="Ramos personalizados">
+            <h3>Ramos personalizados</h3>
+            <p>Colores, nombres, frases, estilos y detalles diseñados especialmente para cada ocasión.</p>
+          </article>
+
+          <article class="product reveal">
+            <img src="https://images.unsplash.com/photo-1533616688419-b7a585564566?auto=format&fit=crop&w=900&q=80" alt="Ediciones especiales">
+            <h3>Ediciones especiales</h3>
+            <p>Piezas limitadas para aniversarios, cumpleaños, San Valentín, bodas y momentos únicos.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="personalizacion">
+      <div class="container personal">
+        <div class="personal-img reveal">
+          <img src="https://images.unsplash.com/photo-1531120364508-a6b656c3e78c?auto=format&fit=crop&w=1200&q=80" alt="Bouquet personalizado">
+        </div>
+
+        <div class="personal-text reveal">
+          <h2>Creamos bouquets únicos para cada historia</h2>
+          <p>Creamos bouquets personalizados con nombres, frases, colores y estilos especiales. Cada diseño se trabaja de forma artesanal para reflejar emoción, elegancia y significado.</p>
+          <p>Perfectos para cumpleaños, aniversarios, pedidas, bodas, detalles románticos, regalos corporativos o sorpresas inolvidables.</p>
+          <a href="https://wa.me/34600000000?text=Hola%20ROMA%20BOUQUET,%20quiero%20un%20bouquet%20personalizado" target="_blank" class="btn">Personalizar pedido</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="container">
+        <div class="section-head reveal">
+          <span>Por qué elegirnos</span>
+          <h2>Detalles que permanecen</h2>
+          <p>Diseños artesanales, elegantes y pensados para emocionar desde la primera mirada.</p>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature reveal"><div>✦</div><h3>Hecho a mano</h3></div>
+          <div class="feature reveal"><div>♡</div><h3>Diseños exclusivos</h3></div>
+          <div class="feature reveal"><div>✧</div><h3>Regalo inolvidable</h3></div>
+          <div class="feature reveal"><div>∞</div><h3>Duración eterna</h3></div>
+          <div class="feature reveal"><div>✉</div><h3>Entrega cuidada</h3></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeria">
+      <div class="container">
+        <div class="section-head reveal">
+          <span>Galería</span>
+          <h2>Inspiración estilo Instagram</h2>
+        </div>
+
+        <div class="gallery">
+          <img class="reveal" src="https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=800&q=80" alt="">
+          <img class="reveal" src="https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?auto=format&fit=crop&w=900&q=80" alt="">
+          <img class="reveal" src="https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=800&q=80" alt="">
+          <img class="reveal" src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=800&q=80" alt="">
+          <img class="reveal" src="https://images.unsplash.com/photo-1470509037663-253afd7f0f51?auto=format&fit=crop&w=900&q=80" alt="">
+          <img class="reveal" src="https://images.unsplash.com/photo-1487530903081-59e0e3331512?auto=format&fit=crop&w=800&q=80" alt="">
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <div class="container">
+        <div class="section-head reveal">
+          <span>Testimonios</span>
+          <h2>Regalos que emocionan</h2>
+        </div>
+
+        <div class="reviews">
+          <div class="review reveal">
+            <p>“El bouquet fue precioso, muy delicado y elegante. Se nota muchísimo el trabajo artesanal.”</p>
+            <h4>María G.</h4>
+          </div>
+
+          <div class="review reveal">
+            <p>“Lo pedí personalizado y superó mis expectativas. Fue un regalo muy especial.”</p>
+            <h4>Camila R.</h4>
+          </div>
+
+          <div class="review reveal">
+            <p>“La presentación, los colores y los acabados son de marca premium. Repetiré seguro.”</p>
+            <h4>Valentina S.</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pedido" class="cta">
+      <div class="container reveal">
+        <h2>Haz eterno tu próximo regalo</h2>
+        <p>Cuéntanos tu idea y crearemos un bouquet artesanal, elegante y personalizado para sorprender de una forma inolvidable.</p>
+        <a href="https://wa.me/34600000000?text=Hola%20ROMA%20BOUQUET,%20quiero%20hacer%20un%20pedido" target="_blank" class="btn">WhatsApp pedido</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <div class="logo">
+        <img src="romab.png" alt="ROMA BOUQUET">
+        ROMA BOUQUET ©
+      </div>
+
+      <div class="socials">
+        <a href="#" target="_blank">Instagram</a>
+        <a href="#" target="_blank">TikTok</a>
+        <a href="https://wa.me/34600000000" target="_blank">WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
